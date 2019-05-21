@@ -1,0 +1,70 @@
+### Template
+## Property Bind
+## Event Bind
+# $event: the entire event payload, can be passed as a variable
+# template reference variable: #var
+## Attribute Directives
+## Structural Directives
+## Input and　Output
+## Expression Operations
+## Type Cast Function
+
+
+### Component Interaction
+## @Input: normal variable
+## @Output: EventEmitter
+## local variable: #var 
+## @ViewChild: imports { AfterViewInit, ViewChild }, implements AfterViewInit, setTimeout
+## through service???
+
+
+### Component Style
+## styles, styleUrls
+## ":host": select parent
+## "host-context": search until root
+## shadow dom concept
+
+
+### ReactiveForm
+## FormControl
+# import ReactiveFormModule => new FormControl calling 'ctl' => bind in template using directive [formControl]="ctl"
+# data from template to component: {{ctl.value}} can listen the changes of the input; or use valueChanges: Observable
+# data from component to template: ctl.setValue('newValue')
+## FormGroup
+# new FormGroup: grp = new FormGroup({c1: new FormControl(''), c2: new FormControl('')})
+# bind in template: form => <form [formGroup]="grp">, control => <input formControlName="c1">
+## submit: [ngSubmit]="onSubmit()"
+## grp.value: {c1: value1, c2: value2}
+## Nested FormGroup
+# group in template: <div formGroupName="address">
+# update value: setValue => entire, patchValue => partial, both need to adhere the structure of the form group, former strictly, latter loosely
+## FormBuilder
+# import ReactiveFormModule, FormBuilder, and inject it cause FormBuilder is a service
+# create a group: this.fb.group({firstName: [''], lastName: [''], address: this.fb.group({province: [''], city: ['']})})
+				  the first item in the array of a control is the initial value, behind it you can provide a validator
+# create a control or array: this.fb.control(''), this.fb.array([this.fb.control('')])
+## Validators
+# ['', Validators.required], when set validators, the initial value is invalid, resulting in the FormGroup invalid too(grp.status = INVALID)
+## FormArray
+# good choice when not knowing the name of controls and its number
+# use in template: "let alias of aliases.controls", note the ".controls"
+				   [formControlName]="i", note the square brackets, differ from other usages
+# create class property using get grammer: get aliases(){return this.profile.get('aliases') as FormArray}
+
+
+### Template-driven form
+## use Twitter bootstrap
+# style.css: @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+# template form: class: ["container", "form-control", "form-group", "btn", etc]
+## set #form="ngForm": link to ngForm, so we can access the whole status of form like valid status
+## to-way data binding
+# [(ngModel)]="a class property", when use the ngModel, must set name attribute for the form control
+# set #name="ngModel", will link the template reference variable to the ngModel, so we can access name.valid, name.pristine etc to track the status of the control
+## custom css
+# assets/forms.css
+# index.html: <link rel="stylesheet" href="assets/forms.css">
+## form reset
+# heroForm.reset()
+
+
+

@@ -1,0 +1,21 @@
+# interpolation expressions: {{interpolation}} string
+# template expressions: [property]="expressions" property bind  
+# template statements:  (event)="statements" event bind
+# other data bind use a prefix: 
+  [attr.attr-name]="expressions"
+  [class.class-name]="expressions"
+  [style.style-name]="expressions"
+# html-attribute static initial
+  dom-property dynamic current
+# ?. null protect: a?.b?.c?.d
+# RxJS: async call and call fun => functional programming
+# Reboot the serve: when there's no mistake actually
+# construct(public name?: string){} optional field
+# select/option instruction: note the square brackets of value
+  <select>
+	<option *ngFor="let power of powers" [value]="power">{{power}}</option>
+  </select>
+# id or name: 
+  id required: <label for="name"> correspond <input id="name">;
+  name required: form control interact with server
+
